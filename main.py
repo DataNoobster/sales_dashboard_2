@@ -10,7 +10,6 @@ import os
 import google.generativeai as genai
 import numpy as np
 
-
 # Set page configuration
 st.set_page_config(
     page_title="Sales Dashboard",
@@ -109,7 +108,6 @@ with st.sidebar:
 
         st.session_state[key] = selected  # Update session state
 
-
     def multi_select_filter(label, column_name, current_df):
         options = sorted(current_df[column_name].dropna().unique().tolist())
         key = f"filter_{column_name}"  # Unique key for session state
@@ -132,8 +130,7 @@ with st.sidebar:
         # Filter the dataframe based on selection
         return current_df if "All" in selected else current_df[current_df[column_name].isin(selected)]
 
-
-    # Define filter order
+    # Define filter order with corrected syntax
     filter_order = [
         ("Select Year", "FY"),
         ("Select Month", "Month"),
@@ -141,8 +138,8 @@ with st.sidebar:
         ("Select Dealer", "Dealer"),
         ("Select Category", "Category"),
         ("Select Product Name", "Product Name"),
-        ("Select Customer Type", "Customer Type-2")
-        ("Dealer Or Not", "Dealer non Dealer")
+        ("Select Customer Type", "Customer Type-2"),
+        ("Select Dealer Or Govt", "Dealer non Dealer")
     ]
 
     # Apply filters
@@ -343,7 +340,6 @@ with tab1:
         st.plotly_chart(fig, use_container_width=True)
 
     def plot_dealer_map(df):
-
         # Aggregate data by 'Updated Location'
         agg_df = df.groupby('Updated Location').agg({
             'Value': 'sum',           # Total revenue per location
@@ -403,7 +399,7 @@ with tab1:
         plot_pareto_chart_by_dealer(df)
     with col32:
         plot_pareto_chart_by_product(df)
-    #plotting the map chart
+    # Plotting the map chart
     plot_dealer_map(df)
 
 with tab2:
