@@ -96,18 +96,6 @@ with st.sidebar:
     if data is None:
         st.stop()
 
-    st.subheader("Date Range")
-    start_date = data["Date"].min()
-    end_date = data["Date"].max()
-    date1 = st.date_input("Start Date", start_date, min_value=start_date, max_value=end_date)
-    date2 = st.date_input("End Date", end_date, min_value=start_date, max_value=end_date)
-    date1 = pd.to_datetime(date1)
-    date2 = pd.to_datetime(date2)
-
-    data = data[(data["Date"] >= date1) & (data["Date"] <= date2)].copy()
-    data["Year"] = data["Date"].dt.year
-    data["Month"] = data["Date"].dt.strftime("%B")
-
     st.subheader("Filters")
 
     def update_filter(key):
