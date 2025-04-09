@@ -135,13 +135,14 @@ with st.sidebar:
 
     # Define filter order
     filter_order = [
-        ("Select Year", "Year"),
+        ("Select Year", "FY"),
         ("Select Month", "Month"),
         ("Select Location", "Location"),
         ("Select Dealer", "Dealer"),
         ("Select Category", "Category"),
         ("Select Product Name", "Product Name"),
         ("Select Customer Type", "Customer Type-2")
+        ("Dealer Or Not", "Dealer non Dealer")
     ]
 
     # Apply filters
