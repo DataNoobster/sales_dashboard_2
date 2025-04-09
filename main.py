@@ -9,8 +9,6 @@ import requests
 import os
 import google.generativeai as genai
 import numpy as np
-from geopy.geocoders import Nominatim
-from geopy.extra.rate_limiter import RateLimiter
 
 
 # Set page configuration
